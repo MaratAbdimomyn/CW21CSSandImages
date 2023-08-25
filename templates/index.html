@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for i in ones %}
+        <li><a href={% url 'about' i.id %}><h3> {{ i.brand }} </h3></a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
