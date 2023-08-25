@@ -6,4 +6,8 @@
         <li> {{ one.model_name }} </li>
         <li> {{ one.country }} </li>
     </ul>
+    <form method="post">
+        {% csrf_token %}
+        <a href={% url 'delete' one.pk %}>Удалить устройство</a>
+    </form>
 {% endblock %}

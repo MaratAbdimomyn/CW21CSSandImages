@@ -1,6 +1,6 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from .models import *
 
@@ -22,6 +22,11 @@ def search(request):
         return render(request, 'search.html', context)
     else:
         return render(request, 'search.html')
+
+class TerminateView(DeleteView):
+    model = Phone
+    template_name = 'delete.html'
+    success_url = reverse_lazy('home')
 
 def add_image(request):
     data = Images.objects.all()

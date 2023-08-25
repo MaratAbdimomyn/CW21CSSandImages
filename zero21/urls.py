@@ -9,5 +9,6 @@ urlpatterns = [
     path('', OneView.as_view(), name='home'),
     path('about/<int:pk>/', AboutView.as_view(), name='about'),
     path('create_image', add_image, name='create_image'),
-    path('search', search, name='search')
+    path('search', search, name='search'),
+    path('delete/<int:pk>/', TerminateView.as_view(), name='delete')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
